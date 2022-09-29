@@ -3,10 +3,19 @@ for(var i=0;i<a;i++){
     document.querySelectorAll("button")[i].addEventListener("click",clickfun);
 }
 function clickfun(){
-    switch(this.innerHTML){
+    var a=this.innerHTML;
+    keyclick(a);
+    buttonanimate(a);
+}
+document.querySelector(".set").addEventListener("keydown",function(){
+    keyclick(event.key);
+    buttonanimate(event.key);
+});
+function keyclick(key){
+    switch(key){
         case "w":
-            var audio=new Audio("./sounds/crash.mp3");
-            audio.play();
+            var crash=new Audio("./sounds/crash.mp3");
+            crash.play();
             break;
         case "a":
             var audio=new Audio("./sounds/kick-bass.mp3");
@@ -29,5 +38,9 @@ function clickfun(){
         default:
             break;
         }
+}
+function buttonanimate(ckey){
+    var a=document.querySelector("."+ckey)
+    a.setAttribute("class","pressed");
 }
 //var 
