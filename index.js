@@ -40,7 +40,12 @@ function keyclick(key){
         }
 }
 function buttonanimate(ckey){
-    var a=document.querySelector("."+ckey)
-    a.setAttribute("class","pressed");
+    var ani=document.querySelector("."+ckey)
+    ani.classList.add("pressed");
+    setTimeout(function(){
+        ani.classList.remove("pressed")
+    },100);
+
 }
+
 //var 
